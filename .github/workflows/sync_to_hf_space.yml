@@ -2,7 +2,7 @@ name: Sync to Hugging Face Space
 
 on:
   push:
-    branches: [main, firstcommit]
+    branches: [main, clean-main, firstcommit]
   workflow_dispatch:
 
 jobs:
