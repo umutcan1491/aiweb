@@ -31,7 +31,7 @@ def startup():
     store = RecipeStore.from_json_file(recipes_path)
 
     vocab = store.unique_ingredients()
-    # Embedding ile dinamik TR->EN: ING_USE_EMBEDDINGS=0 yaparsan kapatır
+    # Embedding ile dinamik TR->EN: ING_USE_EMBEDDINGS=0 yaparsan kapatır1
     use_embeddings = os.getenv("ING_USE_EMBEDDINGS", "1") != "0"
     mapper = IngredientMapper(vocab=vocab, use_embeddings=use_embeddings)
 
