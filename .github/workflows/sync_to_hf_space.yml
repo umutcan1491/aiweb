@@ -2,15 +2,14 @@ name: Sync to Hugging Face Space
 
 on:
   push:
-    branches: [main, clean-main, firstcommit]
+    branches: [main, clean-main]
   workflow_dispatch:
 
 jobs:
   sync-to-hf-space:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           lfs: true
@@ -19,5 +18,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force-with-lease https://umutcan1401:${HF_TOKEN}@huggingface.co/spaces/umutcan1401/dockeraifridge HEAD:main
-
+          git push --force https://umutcan1401:${HF_TOKEN}@huggingface.co/spaces/umutcan1401/dockeraifridge HEAD:main
